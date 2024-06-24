@@ -1,4 +1,5 @@
 from git import Repo
+import ollama
 
 def isGitInit(path):
     try:

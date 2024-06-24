@@ -1,5 +1,6 @@
 import click
 from core import gdr as gdr_helper , gpn as gpn_helper , grn as grn_helper , templates as t_helper , gcm as gcm_helper , gdocs as gdocs_helper , sdocs as sdocs_helper
+from root_utils import save_config , load_config
 
 @click.group()
 def main():
@@ -64,9 +65,26 @@ def sdocs(path,port=4576):
    sdocs_helper.serve_docs(path,port)
 
 
-   
-   
+@click.command(name="config" , help="Configure the tool")
+@click.option('--ollama_model' , '-m' , help='Ollama model name' , type=str)
+@click.option('--ollama_server_url' , '-u' , help='Ollama server url', default='http://localhost:11434/' , type=str)
+@click.option('--show' , '-s' , help='Show current config' , type=bool , is_flag=True)
+def config(ollama_model, show , ollama_server_url):
+   if ollama_model:
+      config_data = {
+         'ollama_model' : ollama_model,
+         'ollama_server_url' : ollama_server_url
+      }
+      save_config(config_data)
+      click.echo("Config saved!")
+   elif show:
+      config = load_config()
+      click.echo(config)
+   else: 
+      raise click.UsageError('Please provide valid options')
 
+
+main.add_command(config)
 main.add_command(sdocs)
 main.add_command(gdocs)
 main.add_command(gcm)

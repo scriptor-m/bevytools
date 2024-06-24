@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.so
+build/
+main.spec
+config.json
