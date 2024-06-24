@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.so
+*.a
+*.o
+*.so
+*.pyc
+*.pyo
+*.so
