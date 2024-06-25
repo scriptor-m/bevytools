@@ -11,3 +11,8 @@ __pycache__/
 build/
 main.spec
 config.json
+*.txt
+*.db
+*.sqlite
+*.zip
+bt_templates/
