@@ -29,7 +29,10 @@ def grn(path):
 @click.command(name='template' , help="Work with templates using this command. For more type 'bt template --help'")
 @click.option('--list' , '-l' , help='List all the templates', type=bool , is_flag=True)
 @click.option('--create' , '-c' , help='Create a new template', type=bool , is_flag=True)
-@click.option('--load' , help='Load a template', type=bool , is_flag=True)
+@click.option('--load' , help='Load a template into current dir', type=bool , is_flag=True)
+@click.option('--delete' , '-d' , help='Delete a template', type=bool , is_flag=True)
+@click.option('--search' , '-s' , help='Search for a template', type=bool , is_flag=True)
+
 @click.argument('path' , type=click.Path(exists=True) , required=False)
 @click.argument ('name' , type=str , required=False)
 def templates(list , create , path , load , name ):

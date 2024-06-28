@@ -51,3 +51,12 @@ def create_new_template(name : str , path : str):
 
 def load_template():
     click.echo('Load template option')
+
+
+def search_template():
+    click.echo('Search template option')
+
+
+def delete_template():
+    click.echo('Delete template option')
+
