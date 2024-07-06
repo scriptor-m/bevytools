@@ -35,7 +35,7 @@ def grn(path):
 
 @click.argument('path' , type=click.Path(exists=True) , required=False)
 @click.argument ('name' , type=str , required=False)
-def templates(list , create , path , load , name ):
+def templates(list , create , path , load , name , delete ,search):
    if list:
       t_helper.list_all_templates()
    elif create:
